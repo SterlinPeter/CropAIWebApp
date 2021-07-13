@@ -1,0 +1,28 @@
+
+header{
+    text-align: center;
+    background-color: #0d6efd;
+    color: white;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 500px;
+}
+
+.form-group{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 15px;
+}
+
+button{
+    margin-top: 5px
+}
+
+.prediction{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
