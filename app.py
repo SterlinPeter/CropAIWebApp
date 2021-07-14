@@ -52,7 +52,7 @@ def predict():
     crop = cropmodel.predict(np.array([[nitrogen]+[phosporus]+[pottasium]+int_features[:4]]))[0]
     app.logger.info(state)
     
-    if crop in cropYield['label']:
+    if crop in cropYield['label'].to_numpy():
         X=[label_object['label'].transform(np.array([crop]))[0],label_object['state'].transform(np.array([state]))[0]]
         yield_quantity = round(yieldmodel.predict(np.array([X]))[0])
         cost = round(costmodel.predict(np.array([X+[yield_quantity]]))[0])

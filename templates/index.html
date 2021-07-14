@@ -16,38 +16,38 @@
         </div>
     </header>
     <div class="row row-content align-items-center">
-        <form action="{{url_for('predict')}}" method="post" onchange="validate()" id="formId">
+        <form action="{{url_for('predict')}}" method="post" onchange="validate()" id="formId" class="mx-auto">
             <div class="form-group row justify-content-center">
-                <label for="temperature" class="offset-3 col-12 col-md-1 col-form-label">Temperature</label>
-                <div class="col-12 col-md-3">
+                <label for="temperature" class="offset-2 col-12 col-md-2 col-form-label">Temperature</label>
+                <div class="col-12 col-md-3 col-xs-3">
                     <input type="text" class="form-control" id="temperature" name="temperature" placeholder="Enter the Temperature(&#176C)" required>
                 </div>
                 <div class="col-12 col-md-3 val" id="tempV"></div>
             </div>
             <div class="form-group row justify-content-center">
-                <label for="humidity" class="offset-3 col-12 col-md-1 col-form-label">Humidity</label>
+                <label for="humidity" class="offset-2 col-12 col-md-2 col-form-label">Humidity</label>
                 <div class="col-12 col-md-3">
                     <input type="text" class="form-control" id="humidity" name="humidity" placeholder="Enter Humidity level" required>
                 </div>
                 <div class="col-12 col-md-3 val" id="humV"></div>
             </div>
             <div class="form-group row justify-content-center">
-                <label for="ph" class="offset-3 col-12 col-md-1 col-form-label">pH</label>
+                <label for="ph" class="offset-2 col-12 col-md-2 col-form-label">pH</label>
                 <div class="col-12 col-md-3">
                     <input type="text" class="form-control" id="ph" name="ph" placeholder="Enter soil pH" required>
                 </div>
                 <div class="col-12 col-md-3 val" id="phV"></div>
             </div>
             <div class="form-group row justify-content-center">
-                <label for="rainfall" class="offset-3 col-12 col-md-1 col-form-label">Rainfall</label>
+                <label for="rainfall" class="offset-2 col-12 col-md-2 col-form-label">Rainfall</label>
                 <div class="col-12 col-md-3">
                     <input type="text" class="form-control" id="rainfall" name="rainfall" placeholder="Enter average Rainfall" required>
                 </div>
                 <div class="col-12 col-md-3 val" id="rainV"></div>
             </div>
             <div class="form-group row justify-content-center">
-                <label for="state" class="col-12 col-md-1 col-form-label">State</label>
-                <div class="col-md-3">
+                <label for="state" class="offset-2 col-12 col-md-2 col-form-label">State</label>
+                <div class="col-12 col-md-3">
                     <select class="form-control" id="state" name="state" placeholder="Select State">
                         <option>Andhra Pradesh</option>
                         <option>Assam</option>
@@ -70,6 +70,7 @@
                         <option>West Bengal</option>
                     </select>
                 </div>
+                <div class="col-12 col-md-3"></div>
             </div>
             <div class="form-group row justify-content-center">
                 <div class="offset-3 col-md-5">
@@ -77,10 +78,17 @@
                 </div>
             </div>
         </form><br>
-        <div class="prediction">
-            {{ prediction_text}}<br>
-            {{ yield_text }}<br>
-            {{ cost_text }}
+        <div class="row">
+            <div class="col-12 mx-auto col-md-3 card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">Estimation Results</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ prediction_text }}<br><br>
+                    {{ yield_text }}<br>
+                    {{ cost_text }}</p>
+                </div>
+            </div>
         </div>
     </div>
     <script src="{{url_for('static',filename='js/jquery.slim.min.js')}}"></script>

@@ -3,8 +3,8 @@ header{
     text-align: center;
     background-color: #0d6efd;
     color: white;
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -15,16 +15,28 @@ header{
 
 .form-group{
     font-family:Georgia, 'Times New Roman', Times, serif;
-    margin: 15px;
+    margin: 10px;
+}
+
+label{
+    text-align: right;
 }
 
 button{
     margin-top: 5px
 }
 
-.prediction{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+.card{
+    margin-top: 20px;
+    width:500px;
+    height: 175px;
+    font-family: 'Lucida Bright';
+}
+
+.card-header{
+    background-color: #0d6efd;
+    color: white;
+    font-weight: bold;
 }
 
 .val{

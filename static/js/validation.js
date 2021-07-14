@@ -22,7 +22,7 @@ function validateElement(element, lower, upper, Id){
         return 1;
     }
     else{
-        document.getElementById(Id).innerHTML=" ";
+        document.getElementById(Id).innerHTML="";
         return 0;
     }
 }
