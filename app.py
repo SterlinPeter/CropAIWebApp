@@ -39,8 +39,11 @@ def predict():
     int_features = [x for x in request.form.values()]
     app.logger.info(int_features)
     state = int_features[4]
-    for i in range(4):
-        int_features[i] = float(int_features[i])
+    try:
+        for i in range(4):
+            int_features[i] = float(int_features[i])
+    except:
+        return render_template('index.html',prediction_text='Please provide valid input!',yield_text=' ',cost_text=' ')
     final_features = np.array([int_features[:4]])
     nitrogen = Nmodel.predict(final_features)[0]
     phosporus = Pmodel.predict(np.array([[nitrogen]+int_features[:4]]))[0]
