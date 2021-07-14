@@ -44,7 +44,7 @@
             <div class="form-group row justify-content-center">
                 <label for="state" class="col-12 col-md-1 col-form-label">State</label>
                 <div class="col-md-3">
-                    <select class="form-control" placeholder="Select State">
+                    <select class="form-control" id="state" name="state" placeholder="Select State">
                         <option>Andhra Pradesh</option>
                         <option>Assam</option>
                         <option>Bihar</option>
@@ -74,7 +74,9 @@
             </div>
         </form><br>
         <div class="prediction">
-            {{ prediction_text}}
+            {{ prediction_text}}<br>
+            {{ yield_text }}<br>
+            {{ cost_text }}
         </div>
     </div>
     <script src="{{url_for('static',filename='js/jquery.slim.min.js')}}"></script>
