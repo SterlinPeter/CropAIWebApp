@@ -1,4 +1,5 @@
 #importing libraries
+from operator import indexOf
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -19,11 +20,11 @@ yieldmodel = pickle.load(open('./Trained_Models/yield.pkl', 'rb'))
 costmodel = pickle.load(open('./Trained_Models/cost.pkl', 'rb'))
 
 label_object = {}
-categorical_columns = ['label','state']
-for col in categorical_columns:
+categorical_columns = ['label','state','encodedLabel','encodedState']
+for col in categorical_columns[:2]:
     labelencoder = LabelEncoder()
     labelencoder.fit(cropYield[col])
-    cropYield[col] = labelencoder.fit_transform(cropYield[col])
+    cropYield[categorical_columns.index(col)+2] = labelencoder.fit_transform(cropYield[col])
     label_object[col] = labelencoder
 
 #default page of our web-app
@@ -51,7 +52,7 @@ def predict():
     crop = cropmodel.predict(np.array([[nitrogen]+[phosporus]+[pottasium]+int_features[:4]]))[0]
     app.logger.info(state)
     
-    if label_object['label'].transform(np.array([crop]))[0] in cropYield['label']:
+    if crop in cropYield['label']:
         X=[label_object['label'].transform(np.array([crop]))[0],label_object['state'].transform(np.array([state]))[0]]
         yield_quantity = round(yieldmodel.predict(np.array([X]))[0])
         cost = round(costmodel.predict(np.array([X+[yield_quantity]]))[0])
