@@ -3,7 +3,8 @@ from operator import indexOf
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request,send_from_directory
+import os
 import pickle
 
 from numpy.core.fromnumeric import round_ 
@@ -28,10 +29,13 @@ for col in categorical_columns[:2]:
     label_object[col] = labelencoder
 
 #default page of our web-app
-@app.route('/')
+@app.route('/',methods=['GET'])
 def home():
     return render_template('index.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 #To use the predict button in our web-app
 @app.route('/predict',methods=['POST'])
