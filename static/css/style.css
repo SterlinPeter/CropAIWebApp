@@ -19,12 +19,19 @@ body{
 .form-group{
     font-family:Georgia, 'Times New Roman', Times, serif;
     margin: 10px;
+    display: flex;
 }
 
 label{
     text-align: right;
     color: white;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 500px) {
+    label{
+        text-align: left;
+    }
 }
 
 button{
