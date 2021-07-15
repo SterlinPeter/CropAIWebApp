@@ -10,7 +10,7 @@
     <title>Crop Recommendation AI</title>
 </head>
 <body>
-    <header class="container">
+    <header class="mx-auto">
         <div class="row justify-content-center">
             <h3>Enter the details below:</h3>
         </div>
@@ -78,17 +78,18 @@
                 </div>
             </div>
         </form><br>
-        <div class="row">
-            <div class="col-12 mx-auto col-md-3 card text-center">
-                <div class="card-header">
-                    <h5 class="card-title">Estimation Results</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{ prediction_text }}<br><br>
-                    {{ yield_text }}<br>
-                    {{ cost_text }}</p>
-                </div>
-            </div>
+    </div>
+    <header class="mx-auto">
+        <div class="row justify-content-center">
+            <h3>Estimation Results will appear below</h3>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-12 mx-auto col-md-3 text-center">
+            <p>{{ prediction_text }}<br>
+            {{ yield_text }}<br>
+            {{ cost_text }}</p>
         </div>
     </div>
     <script src="{{url_for('static',filename='js/jquery.slim.min.js')}}"></script>
