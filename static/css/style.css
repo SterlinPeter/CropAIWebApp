@@ -34,15 +34,19 @@ label{
     }
 }
 
+
+
 button{
     margin-top: 5px
 }
 
-p{
-    color: black;
+h4{
+    color: white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    font-size: larger;
+}
+
+.blur{
+    backdrop-filter: blur(5px);
 }
 
 .val{
